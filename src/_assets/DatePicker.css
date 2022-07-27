@@ -1,0 +1,206 @@
+.DatePicker {
+    display: inline-block;
+    position: relative;
+}
+
+.DatePicker * {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently */  
+}
+
+.DatePicker > div[data-datewrapper] {
+    display: inline-block;
+    position: relative;
+}
+
+.DatePicker > div[data-datewrapper]::after {
+    content: ' ';
+    position: absolute;
+    top: 0.25rem;
+    right: 0.1rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #f5f5f5;
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 32,0 32,32, 0,32, 0,0' fill='%23f5f5f5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1.2rem;
+    border-radius: 0.6rem;
+}
+
+.DatePicker > div[data-datewrapper] > input:focus 
+{
+    outline: none;
+}
+
+.DatePicker > div[data-datewrapper] > input
+{
+    position: relative;
+    width: 13rem;
+    padding: 0.2rem 0 0.2rem 0.8rem;
+}
+
+.DatePicker > select
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.8rem;
+    text-indent: -2px;
+}
+
+.DatePicker > div[data-datewrapper] > input,
+.DatePicker > select
+{
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #f5f5f5;
+    border: 1px #C3CBD4 solid;
+    border-radius: 0.875rem;
+    height: 1.75rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.075rem;
+    font-size: 0.8rem;
+}
+
+.DatePicker > div[data-datewrapper] > div > div {
+    display: grid;
+    z-index: 900;
+    grid-template-columns: repeat( 7, 1fr );
+    grid-template-rows: 2rem 1fr;
+    justify-items: center;
+    position: absolute;
+    left: -2rem;
+    top: 2.2rem;
+    width: 15rem;
+    background: #fff;
+    border: 1px #C3CBD4 solid;
+    border-radius: 0.875rem;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.2);
+    padding: 0.8rem 1rem;
+}
+
+.DatePicker > div[data-datewrapper] > div > span {
+    z-index: 910;
+    top: 1.75rem;
+    left: calc(50% - 0.5rem);
+    display: block;
+    position: absolute;
+    width: 1rem;
+    height: 0.5rem;
+    margin-top: 0px;
+    padding: 0;
+    background: scroll center top/cover no-repeat url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='8'%3E%3Cpath fill='%23fff' stroke='%23C3CBD4' stroke-width='1' d='M 1,8 8,1 15,8' /%3E%3C/svg%3E" );
+    border: 0;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > button, 
+.DatePicker > div[data-datewrapper] > div > div > div[data-calendar] > button
+{
+    cursor: pointer;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 1px #C3CBD4 solid;
+    border-radius: 0.875rem;
+    background-color: #f5f5f5;
+    background-repeat: no-repeat;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > button:hover, 
+.DatePicker > div[data-datewrapper] > div > div > div[data-calendar] > button:hover
+{
+    background-color: #e7e7e7;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-calendar] > button
+{
+    margin-bottom: 0.5rem;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-calendar] > button:disabled
+{
+    border: 1px #efefef solid;
+    color: #d7d7d7;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div {
+    display: inline-block;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div {
+    grid-column: span 7;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-yearandmonth] {
+    grid-column: span 3;
+    text-align: center;
+    max-height: 2rem;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-yearandmonth] > span {
+    font-size: 1rem;
+    line-height: 1rem;
+    display: block;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-yearandmonth] > span:last-child {
+    font-size: 0.8rem;
+}
+
+[data-doubleforward],
+[data-doubleback]
+{
+    background-position: left 70% top 50%;
+    background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 1,1 7,8 1,15' fill='none' stroke='%23C3CBD4' stroke-width='2' stroke-linecap='round' /%3E%3Cpath d='M 8,1 14,8 8,15' fill='none' stroke='%23C3CBD4' stroke-width='2' stroke-linecap='round' /%3E%3C/svg%3E");
+}
+
+[data-forward],
+[data-back]
+{
+    background-position: left 60% top 50%;
+    background-image: url("data:image/svg+xml,%3Csvg width='9' height='16' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M 1,1 7,8 1,15' fill='none' stroke='%23C3CBD4' stroke-width='2' stroke-linecap='round' /%3E%3C/svg%3E");
+}
+
+[data-doubleback],
+[data-back]
+{
+    transform: rotate(180deg);
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-calendar] {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    padding-top: 0.5rem;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-calendar] > span
+{
+    display: inline-block;
+    height: 1.5rem;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-calendar] > button
+{
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-calendar] > button[data-appearance="current"] {
+    background-color: #d3d3d3;
+    border-color: #444;
+}
+
+.DatePicker > div[data-datewrapper] > div > div > div[data-calendar] > button[data-appearance="selected"] {
+    color: #fff;
+    background-color: #3f3f3f;
+    border-color: #444;
+}
